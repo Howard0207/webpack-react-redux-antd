@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Breadcrumb, Button, Tooltip, Rate } from 'antd';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
 
-class Home extends Component {
+class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

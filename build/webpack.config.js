@@ -3,8 +3,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -13,12 +14,12 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
   },
 
-  // devServer: {
-  //   contentBase: '../dist',
-  //   port: '8080',
-  //   host: 'localhost',
-  //   hot: true,
-  // },
+  devServer: {
+    contentBase: '../dist',
+    port: '8080',
+    host: 'localhost',
+    hot: true,
+  },
   module: {
     rules: [
       {
@@ -37,6 +38,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new webpack.ProvidePlugin({
       React: 'react',
     }),
@@ -52,9 +54,9 @@ module.exports = {
       inject: 'body',
     }),
     new webpack.DllReferencePlugin({
-      manifest: path.resolve(__dirname, '../dist/vendors', 'manifest.json'),
+      manifest: path.resolve(__dirname, '../_dll_vendors', 'manifest.json'),
     }),
-    new CleanWebpackPlugin(),
+    new AddAssetHtmlPlugin({ filepath: require.resolve(path.resolve(__dirname, '../_dll_vendors/_dll_react.js')) }),
   ],
   resolve: {
     alias: {

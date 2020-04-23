@@ -10,7 +10,8 @@ module.exports = {
   globals: {
     document: true,
     localStorage: true,
-    window: true
+    window: true,
+    React: true
   },
   // ESLint 默认使用Espree作为其解析器，你可以在配置文件中指定一个不同的解析器
   parser: 'babel-eslint',
