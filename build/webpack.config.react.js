@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode: 'production',
   entry: {
-    react: ['react', 'react-router-dom', 'redux', 'react-redux', 'redux-immutable', 'redux-thunk'],
+    react: ['react', 'react-router-dom', 'redux', 'react-redux', 'immutable', 'redux-immutable', 'redux-thunk'],
   },
   output: {
     filename: '_dll_[name].js', // 产生的文件名

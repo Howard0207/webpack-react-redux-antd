@@ -19,6 +19,7 @@ module.exports = {
     port: '8080',
     host: 'localhost',
     hot: true,
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -60,10 +61,10 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      components: path.resolve(__dirname, 'components'),
-      consts: path.resolve(__dirname, 'consts'),
-      less: path.resolve(__dirname, 'less'),
-      utils: path.resolve(__dirname, 'utils'),
+      _components: path.resolve(__dirname, '../components'),
+      _consts: path.resolve(__dirname, '../consts'),
+      _less: path.resolve(__dirname, '../less'),
+      _utils: path.resolve(__dirname, '../utils'),
     },
     extensions: ['.jsx', '.js', '.less', '.css'],
   },

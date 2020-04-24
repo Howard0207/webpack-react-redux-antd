@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         test: /\.(le|c)ss$/,
-        use: [...cssHandler()],
+        use: [...cssHandler],
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
@@ -57,9 +57,9 @@ module.exports = {
       hash: true,
       inject: 'body',
     }),
-    new AddAssetHtmlPlugin({ filepath: require.resolve(path.resolve(__dirname, '../project_dependence')) }),
+    new AddAssetHtmlPlugin({ filepath: require.resolve(path.resolve(__dirname, '../_dll_vendors/_dll_react.js')) }),
     new webpack.DllReferencePlugin({
-      manifest: path.resolve(__dirname, '../project_dependence', 'manifest.json'),
+      manifest: path.resolve(__dirname, '../_dll_vendors', 'manifest.json'),
     }),
     new webpack.DefinePlugin({
       'process.env': `${JSON.stringify(ENV)}`,
@@ -67,10 +67,10 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      components: path.resolve(__dirname, 'components'),
-      consts: path.resolve(__dirname, 'consts'),
-      less: path.resolve(__dirname, 'less'),
-      utils: path.resolve(__dirname, 'utils'),
+      _components: path.resolve(__dirname, '../components'),
+      _consts: path.resolve(__dirname, '../consts'),
+      _less: path.resolve(__dirname, '../less'),
+      _utils: path.resolve(__dirname, '../utils'),
     },
     extensions: ['.jsx', '.js', '.less', '.css'],
   },

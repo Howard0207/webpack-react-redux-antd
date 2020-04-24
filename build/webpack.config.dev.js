@@ -9,10 +9,11 @@ const webpackDev = {
     port: '8080',
     host: 'localhost',
     hot: true,
-    compress: true,
-    proxy: {
-      '/api': 'http://localhost:3000',
-    },
+    // compress: true,
+    historyApiFallback: true,
+    // proxy: {
+    //   '/api': 'http://localhost:3000',
+    // },
   },
 };
 

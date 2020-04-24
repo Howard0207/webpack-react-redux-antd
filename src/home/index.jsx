@@ -1,7 +1,9 @@
+import { Link, useRouteMatch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Breadcrumb, Button, Tooltip, Rate } from 'antd';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
+import '_less/home';
 
 class Home extends React.Component {
   constructor(props) {
@@ -20,7 +22,7 @@ class Home extends React.Component {
     const { name } = this.props;
     const { age } = this.state;
     return (
-      <div>
+      <div className="home">
         <Breadcrumb>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>
@@ -41,6 +43,10 @@ class Home extends React.Component {
           AA
         </Button>
         <div>
+          <i className="iconfont icon-yongcan" />
+        </div>
+        <div>
+          <Link to="/route">toRoutez</Link>
           this is home Component ass
           {name + age}
         </div>

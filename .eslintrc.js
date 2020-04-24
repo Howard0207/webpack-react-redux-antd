@@ -5,19 +5,27 @@ module.exports = {
     es6: true, // 启用除了 modules 以外的所有 ECMAScript 6 特性（该选项会自动设置 ecmaVersion 解析器选项为 6）
   },
   // 一个配置文件可以被基础配置中的已启用的规则继承。
-  extends: ['airbnb', 'plugin:prettier/recommended'],
+  extends: ['airbnb', 'plugin:prettier/recommended', 'prettier/flowtype', 'prettier/react', 'prettier/standard'],
   // 自定义全局变量
   globals: {
     document: true,
     localStorage: true,
     window: true,
-    React: true
+    React: true,
   },
+  // settings: {
+  //   'import/resolver': {
+  //     webpack: {
+  //       config: 'build/webpack.config.js', // 这是你设置alias的配置文件路径
+  //     },
+  //   },
+  // },
   // ESLint 默认使用Espree作为其解析器，你可以在配置文件中指定一个不同的解析器
   parser: 'babel-eslint',
   // 配置解析器支持的语法
   parserOptions: {
-    ecmaFeatures: { // 表示使用的额外的语言特性
+    ecmaFeatures: {
+      // 表示使用的额外的语言特性
       jsx: true, // 开启jsx
     },
     ecmaVersion: 2018, // 启用 ECMAScript 版本; 2015（同 6），2016（同 7），或 2017（同 8）或 2018（同 9）或 2019 (same as 10)
@@ -46,5 +54,12 @@ module.exports = {
       },
     ],
     'no-useless-escape': 2,
+    'import/no-unresolved': [
+      2,
+      {
+        ignore: ['_less', '_components', '_utils', '_consts'], // @ 是设置的路径别名
+      },
+    ],
+    "prettier/prettier": ["error", {"singleQuote": true, "parser": "flow"}]
   },
 };
