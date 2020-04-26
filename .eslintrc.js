@@ -60,6 +60,7 @@ module.exports = {
         ignore: ['_less', '_components', '_utils', '_consts'], // @ 是设置的路径别名
       },
     ],
+    "react/forbid-prop-types": [2, {"forbid": ["any"]}], //禁止某些propTypes
     "prettier/prettier": ["error", {"singleQuote": true, "parser": "flow"}]
   },
 };
