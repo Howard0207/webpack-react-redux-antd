@@ -16,29 +16,13 @@ const Main = Loadable({
   loading: Loading,
 });
 
-const PowerEconormy = Loadable({
-  loader: () => import(/* webpackPrefetch: true */ '../src/power-econormy'),
-  loading: Loading,
-});
-
 export default function RouterConfig() {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/route">
-            <Main />
-            <Switch>
-              {/* <Route path={`power-factor`} component={PowerFactor} /> */}
-              <Route path={`power-econormy`} component={PowerEconormy} />
-            </Switch>
-          </Route>
-          <Route exact path="/test">
-            <PowerEconormy />
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route path="/main" component={Main} />
         </Switch>
       </BrowserRouter>
     </Provider>

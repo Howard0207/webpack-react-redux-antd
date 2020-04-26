@@ -18,13 +18,13 @@ export const navList = [
     child: [
       {
         label: '功率因数',
-        link: '/route/power-factor',
+        link: '/main/power-factor',
         icon: 'icon-house',
         child: [],
       },
       {
         label: '经济运行',
-        link: '/route/power-econormy',
+        link: '/main/power-econormy',
         icon: 'icon-copy',
         child: [],
       },

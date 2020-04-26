@@ -46,7 +46,7 @@ class Home extends React.Component {
           <i className="iconfont icon-yongcan" />
         </div>
         <div>
-          <Link to="/route">toRoutez</Link>
+          <Link to="/main">toRoutez</Link>
           this is home Component ass
           {name + age}
         </div>

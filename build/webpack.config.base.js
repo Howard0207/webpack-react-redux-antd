@@ -19,6 +19,7 @@ module.exports = {
   entry: path.resolve(__dirname, '../App.jsx'),
   output: {
     path: path.resolve(__dirname, '../dist'),
+    publicPath: '/',
   },
   module: {
     rules: [
