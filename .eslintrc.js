@@ -54,6 +54,10 @@ module.exports = {
       },
     ],
     'no-useless-escape': 2,
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": false
+    }],
     'import/no-unresolved': [
       2,
       {
