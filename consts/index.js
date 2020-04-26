@@ -13,7 +13,7 @@ export const navList = [
   },
   {
     label: '用电优化',
-    link: '',
+    link: '/main',
     icon: 'icon-chengchedaka',
     child: [
       {

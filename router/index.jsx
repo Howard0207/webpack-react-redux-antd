@@ -1,30 +1,15 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Loadable from 'react-loadable';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { renderRoutes } from 'react-router-config';
 import store from '../store';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-
-const Loading = () => <div>loading...</div>;
-const Home = Loadable({
-  loader: () => import(/* webpackPrefetch: true */ '../src/home'),
-  loading: Loading,
-});
-
-const Main = Loadable({
-  loader: () => import(/* webpackPrefetch: true */ '../src/main'),
-  loading: Loading,
-});
+import routes from './router-config';
 
 export default function RouterConfig() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/main" component={Main} />
-        </Switch>
-      </BrowserRouter>
+      <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>
     </Provider>
   );
 }

@@ -1,10 +1,12 @@
+import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { navList } from '_consts';
-import { Link } from 'react-router-dom';
+
 import '_less/nav';
 import { Menu, Button } from 'antd';
 
 const { SubMenu } = Menu;
-export default class Sider extends React.Component {
+class Sider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,12 +43,15 @@ export default class Sider extends React.Component {
 
   render() {
     const { collapsed, navMapList } = this.state;
+    const { location, match } = this.props;
+    const { pathname } = location;
+    const { path } = match;
     return (
       <div style={{ width: 256 }}>
         <Button type="primary" onClick={() => this.toggleCollapsed} style={{ marginBottom: 16 }} />
         <Menu
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
+          defaultSelectedKeys={[pathname]}
+          defaultOpenKeys={[path]}
           mode="inline"
           theme="dark"
           inlineCollapsed={collapsed}
@@ -57,3 +62,10 @@ export default class Sider extends React.Component {
     );
   }
 }
+
+Sider.propTypes = {
+  location: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+};
+
+export default withRouter(Sider);

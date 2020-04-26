@@ -1,20 +1,7 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/forbid-prop-types */
-import { withRouter, Route, Switch } from 'react-router-dom';
-import Loadable from 'react-loadable';
+import { withRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
 import Nav from '_components/nav';
 import PropTypes from 'prop-types';
-
-const Loading = () => <div>loading...</div>;
-const PowerFactor = Loadable({
-  loader: () => import(/* webpackPrefetch: true */ '../power-factor'),
-  loading: Loading,
-});
-
-const PowerEconormy = Loadable({
-  loader: () => import(/* webpackPrefetch: true */ '../power-econormy'),
-  loading: Loading,
-});
 
 class Main extends React.Component {
   constructor(props) {
@@ -25,16 +12,12 @@ class Main extends React.Component {
   }
 
   render() {
-    const { match } = this.props;
-    const { path } = match;
+    const { route } = this.props;
     const { test } = this.state;
     return (
       <div>
         <Nav />
-        <Switch>
-          <Route path={`${path}/power-factor`} component={PowerFactor} />
-          <Route path={`${path}/power-econormy`} component={PowerEconormy} />
-        </Switch>
+        {renderRoutes(route.routes)}
         {test}
       </div>
     );
@@ -42,7 +25,7 @@ class Main extends React.Component {
 }
 
 Main.propTypes = {
-  match: PropTypes.object.isRequired,
+  route: PropTypes.instanceOf(renderRoutes).isRequired,
 };
 
 export default withRouter(Main);
