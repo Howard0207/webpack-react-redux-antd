@@ -4,6 +4,7 @@ import { renderRoutes } from 'react-router-config';
 import store from '../store';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+import '_less/reset.less';
 import routes from './router-config';
 
 export default function RouterConfig() {

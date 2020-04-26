@@ -48,9 +48,9 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-      ignoreOrder: false,
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[id].css',
+      ignoreOrder: true,
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',

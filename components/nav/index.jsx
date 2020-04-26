@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { navList } from '_consts';
 
 import '_less/nav';
-import { Menu, Button } from 'antd';
+import { Button, Menu } from 'antd';
 
 const { SubMenu } = Menu;
 class Sider extends React.Component {
@@ -48,7 +48,9 @@ class Sider extends React.Component {
     const { path } = match;
     return (
       <div style={{ width: 256 }}>
-        <Button type="primary" onClick={() => this.toggleCollapsed} style={{ marginBottom: 16 }} />
+        <Button type="primary" onClick={() => this.toggleCollapsed} style={{ marginBottom: 16 }}>
+          12313
+        </Button>
         <Menu
           defaultSelectedKeys={[pathname]}
           defaultOpenKeys={[path]}

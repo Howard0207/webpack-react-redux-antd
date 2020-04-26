@@ -33,7 +33,7 @@ const routes = [
     component: Main,
     routes: [
       {
-        path: '/main/power-factor',
+        path: ['/main', '/main/power-factor'],
         exact: true,
         component: PowerFactor,
       },

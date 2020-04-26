@@ -1,4 +1,4 @@
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import Nav from '_components/nav';
 import PropTypes from 'prop-types';
@@ -12,9 +12,12 @@ class Main extends React.Component {
   }
 
   render() {
-    const { route } = this.props;
+    const { route, location } = this.props;
     const { test } = this.state;
-    return (
+    const { pathname } = location;
+    return pathname === '/main' ? (
+      <Redirect to="/main/power-factor" />
+    ) : (
       <div>
         <Nav />
         {renderRoutes(route.routes)}
@@ -26,6 +29,7 @@ class Main extends React.Component {
 
 Main.propTypes = {
   route: PropTypes.instanceOf(renderRoutes).isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default withRouter(Main);
