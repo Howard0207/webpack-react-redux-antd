@@ -1,9 +1,8 @@
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { navList } from '_consts';
-
-import '_less/nav';
 import { Button, Menu } from 'antd';
+import '_less/nav';
 
 const { SubMenu } = Menu;
 class Sider extends React.Component {
@@ -22,6 +21,7 @@ class Sider extends React.Component {
           key={nav.link}
           title={
             <span>
+              <i className={`action iconfont ${nav.icon}`}></i>
               <span>{nav.label}</span>
             </span>
           }
@@ -30,7 +30,10 @@ class Sider extends React.Component {
         </SubMenu>
       ) : (
         <Menu.Item key={nav.link}>
-          <Link to={nav.link}>{nav.label}</Link>
+          <Link to={nav.link}>
+            {nav.icon && <i className={`action iconfont ${nav.icon}`}></i>}
+            <span>{nav.label}</span>
+          </Link>
         </Menu.Item>
       );
     });
@@ -46,9 +49,10 @@ class Sider extends React.Component {
     const { location, match } = this.props;
     const { pathname } = location;
     const { path } = match;
+    console.log(collapsed);
     return (
       <div style={{ width: 256 }}>
-        <Button type="primary" onClick={() => this.toggleCollapsed} style={{ marginBottom: 16 }}>
+        <Button type="primary" onClick={() => this.toggleCollapsed()} style={{ marginBottom: 16 }}>
           12313
         </Button>
         <Menu

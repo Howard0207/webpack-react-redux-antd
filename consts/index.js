@@ -19,13 +19,11 @@ export const navList = [
       {
         label: '功率因数',
         link: '/main/power-factor',
-        icon: 'icon-house',
         child: [],
       },
       {
         label: '经济运行',
         link: '/main/power-econormy',
-        icon: 'icon-copy',
         child: [],
       },
     ],
