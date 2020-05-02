@@ -54,17 +54,21 @@ module.exports = {
       },
     ],
     'no-useless-escape': 2,
-    "react/self-closing-comp": ["error", {
-      "component": true,
-      "html": false
-    }],
+    'react/self-closing-comp': [
+      'error',
+      {
+        component: true,
+        html: false,
+      },
+    ],
     'import/no-unresolved': [
       2,
       {
         ignore: ['_less', '_components', '_utils', '_consts'], // @ 是设置的路径别名
       },
     ],
-    "react/forbid-prop-types": [2, {"forbid": ["any"]}], //禁止某些propTypes
-    "prettier/prettier": ["error", {"singleQuote": true, "parser": "flow"}]
+    'react/forbid-prop-types': [2, { forbid: ['any'] }], //禁止某些propTypes
+    'react/sort-comp': 0,
+    'prettier/prettier': ['error', { singleQuote: true, parser: 'flow' }],
   },
 };

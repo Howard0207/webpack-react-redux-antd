@@ -1,4 +1,5 @@
 const merge = require('webpack-merge');
+const webpack = require('webpack');
 const webpackBase = require('./webpack.config.base');
 
 const webpackDev = {
@@ -15,6 +16,7 @@ const webpackDev = {
     //   '/api': 'http://localhost:3000',
     // },
   },
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 };
 
 module.exports = merge(webpackDev, webpackBase);

@@ -1,5 +1,6 @@
 import { withRouter, Redirect } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
+import { Button } from 'antd';
 import Nav from '_components/nav';
 import PropTypes from 'prop-types';
 
@@ -9,6 +10,14 @@ class Main extends React.Component {
     this.state = {
       test: 'ssdafafasd',
     };
+  }
+
+  changeText() {
+    const num = Math.floor(Math.random() * 100);
+    const text = 'number是: ';
+    setTimeout(() => {
+      this.setState({ test: text + num });
+    }, 1000);
   }
 
   render() {
@@ -22,6 +31,13 @@ class Main extends React.Component {
         <Nav />
         {renderRoutes(route.routes)}
         {test}
+        <Button
+          onClick={() => {
+            this.changeText();
+          }}
+        >
+          click
+        </Button>
       </div>
     );
   }
