@@ -24,23 +24,22 @@ const PowerEconormy = Loadable({
 
 const routes = [
   {
-    component: Home,
     path: '/',
-    exact: true,
-  },
-  {
-    path: '/main',
     component: Main,
     routes: [
       {
-        path: ['/main', '/main/power-factor'],
+        path: ['/power-factor'],
         exact: true,
         component: PowerFactor,
       },
       {
-        path: '/main/power-econormy',
+        path: '/power-econormy',
         exact: true,
         component: PowerEconormy,
+      },
+      {
+        path: '*',
+        component: Home,
       },
     ],
   },

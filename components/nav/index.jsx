@@ -49,12 +49,9 @@ class Sider extends React.Component {
     const { location, match } = this.props;
     const { pathname } = location;
     const { path } = match;
-    console.log(collapsed);
     return (
-      <div style={{ width: 256 }}>
-        <Button type="primary" onClick={() => this.toggleCollapsed()} style={{ marginBottom: 16 }}>
-          12313
-        </Button>
+      <div className="app-nav">
+        <div onClick={() => this.toggleCollapsed()}></div>
         <Menu
           defaultSelectedKeys={[pathname]}
           defaultOpenKeys={[path]}

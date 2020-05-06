@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 
 const ENV = process.env.NODE_ENV;
 const isDev = ENV === 'development';
@@ -47,6 +48,7 @@ module.exports = {
       React: 'react',
     }),
     new CleanWebpackPlugin(),
+    new AntdDayjsWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
       chunkFilename: 'css/[id].css',

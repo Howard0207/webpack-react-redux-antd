@@ -24,21 +24,23 @@ class Main extends React.Component {
     const { route, location } = this.props;
     const { test } = this.state;
     const { pathname } = location;
-    return pathname === '/main' ? (
-      <Redirect to="/main/power-factor" />
+    return pathname === '/' ? (
+      <Redirect to="/power-factor" />
     ) : (
-      <div>
+      <>
         <Nav />
-        {renderRoutes(route.routes)}
-        {test}
-        <Button
-          onClick={() => {
-            this.changeText();
-          }}
-        >
-          click
-        </Button>
-      </div>
+        <div className="page-container">
+          {renderRoutes(route.routes)}
+          {test}
+          <Button
+            onClick={() => {
+              this.changeText();
+            }}
+          >
+            click
+          </Button>
+        </div>
+      </>
     );
   }
 }

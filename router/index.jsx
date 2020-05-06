@@ -6,6 +6,7 @@ import store from '../store';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import '_less/reset.less';
+import '_less/config.less';
 import routes from './router-config';
 
 function RouterConfig() {

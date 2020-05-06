@@ -35,7 +35,6 @@ module.exports = {
   // 在配置文件里配置插件时，可以使用 plugins 关键字来存放插件名字的列表。插件名称可以省略 eslint-plugin- 前缀。
   plugins: [
     'react',
-    // "@typescript-eslint"
   ],
   // ESLint 附带有大量的规则。你可以使用注释或配置文件修改你项目中要使用的规则。要改变一个规则设置，你必须将规则 ID 设置为下列值之一：
   // "off" 或 0 - 关闭规则
@@ -70,5 +69,9 @@ module.exports = {
     'react/forbid-prop-types': [2, { forbid: ['any'] }], //禁止某些propTypes
     'react/sort-comp': 0,
     'prettier/prettier': ['error', { singleQuote: true, parser: 'flow' }],
+    'class-methods-use-this': 0,
+    'jsx-a11y/control-has-associated-label': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/no-static-element-interactions': 0
   },
 };

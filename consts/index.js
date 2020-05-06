@@ -13,17 +13,17 @@ export const navList = [
   },
   {
     label: '用电优化',
-    link: '/main',
+    link: '/',
     icon: 'icon-chengchedaka',
     child: [
       {
         label: '功率因数',
-        link: '/main/power-factor',
+        link: '/power-factor',
         child: [],
       },
       {
         label: '经济运行',
-        link: '/main/power-econormy',
+        link: '/power-econormy',
         child: [],
       },
     ],
