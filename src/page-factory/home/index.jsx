@@ -4,7 +4,7 @@ import { Breadcrumb, Tooltip, Button, Rate, DatePicker } from 'antd';
 import locale from 'antd/lib/date-picker/locale/zh_CN';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
-import '_less/home';
+import '_less/page-factory/home';
 
 class Home extends React.Component {
   constructor(props) {
@@ -52,13 +52,13 @@ class Home extends React.Component {
         </div>
         <DatePicker locale={locale} onChange={this.onChange} />
         <br />
-        <DatePicker onChange={this.onChange} picker="week" />
+        <DatePicker locale={locale} onChange={this.onChange} picker="week" />
         <br />
-        <DatePicker onChange={this.onChange} picker="month" />
+        <DatePicker locale={locale} onChange={this.onChange} picker="month" />
         <br />
-        <DatePicker onChange={this.onChange} picker="quarter" />
+        <DatePicker locale={locale} onChange={this.onChange} picker="quarter" />
         <br />
-        <DatePicker onChange={this.onChange} picker="year" />
+        <DatePicker locale={locale} onChange={this.onChange} picker="year" />
         <div>
           <Link to="/main">toRoutez</Link>
           this is home Component ass

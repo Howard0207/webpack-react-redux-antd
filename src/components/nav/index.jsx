@@ -1,15 +1,15 @@
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { navList } from '_consts';
-import { Button, Menu } from 'antd';
-import '_less/nav';
+import { Menu } from 'antd';
+import '_less/components/nav';
 
 const { SubMenu } = Menu;
+
 class Sider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapsed: false,
       navMapList: navList,
     };
   }
@@ -39,11 +39,6 @@ class Sider extends React.Component {
     });
   }
 
-  toggleCollapsed() {
-    const { collapsed } = this.state;
-    this.setState({ collapsed: !collapsed });
-  }
-
   render() {
     const { collapsed, navMapList } = this.state;
     const { location, match } = this.props;
@@ -51,7 +46,6 @@ class Sider extends React.Component {
     const { path } = match;
     return (
       <div className="app-nav">
-        <div onClick={() => this.toggleCollapsed()}></div>
         <Menu
           defaultSelectedKeys={[pathname]}
           defaultOpenKeys={[path]}

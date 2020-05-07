@@ -1,7 +1,7 @@
 export const navList = [
   {
     label: '信息概览',
-    link: '/',
+    link: '/factory-all',
     icon: 'icon-radio_checked',
     child: [],
   },
@@ -13,17 +13,22 @@ export const navList = [
   },
   {
     label: '用电优化',
-    link: '/',
+    link: '/factory-all',
     icon: 'icon-chengchedaka',
     child: [
       {
         label: '功率因数',
-        link: '/power-factor',
+        link: '/factory-all/power-factor',
         child: [],
       },
       {
         label: '经济运行',
-        link: '/power-econormy',
+        link: '/factory-all/power-econormy',
+        child: [],
+      },
+      {
+        label: 'echarts图表',
+        link: '/factory-all/echarts',
         child: [],
       },
     ],

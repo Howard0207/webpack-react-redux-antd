@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
-const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+// const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const ENV = process.env.NODE_ENV;
 const isDev = ENV === 'development';
@@ -44,11 +45,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      React: 'react',
-    }),
     new CleanWebpackPlugin(),
-    new AntdDayjsWebpackPlugin(),
+    // new AntdDayjsWebpackPlugin(),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.ProvidePlugin({ React: 'react' }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
       chunkFilename: 'css/[id].css',
@@ -67,13 +67,14 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': `${JSON.stringify(ENV)}`,
     }),
+    // new BundleAnalyzerPlugin(),
   ],
   resolve: {
     alias: {
-      _components: path.resolve(__dirname, '../components'),
-      _consts: path.resolve(__dirname, '../consts'),
+      _components: path.resolve(__dirname, '../src/components'),
+      _consts: path.resolve(__dirname, '../src/consts'),
       _less: path.resolve(__dirname, '../less'),
-      _utils: path.resolve(__dirname, '../utils'),
+      _utils: path.resolve(__dirname, '../src/utils'),
     },
     extensions: ['.jsx', '.js', '.less', '.css'],
   },

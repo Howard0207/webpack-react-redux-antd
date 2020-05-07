@@ -1,6 +1,8 @@
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const merge = require('webpack-merge');
+const CompressionPlugin = require('compression-webpack-plugin');
+const zopfli = require('@gfx/zopfli');
 const webpackBase = require('./webpack.config.base');
 
 const webpackProd = {
@@ -46,6 +48,16 @@ const webpackProd = {
       },
     },
   },
+  plugins: [
+    new CompressionPlugin({
+      compressionOptions: {
+        numiterations: 20,
+      },
+      algorithm(input, compressionOptions, callback) {
+        return zopfli.gzip(input, compressionOptions, callback);
+      },
+    }),
+  ],
 };
 
 module.exports = merge(webpackProd, webpackBase);
