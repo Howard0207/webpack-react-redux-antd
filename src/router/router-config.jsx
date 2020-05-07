@@ -3,34 +3,30 @@ import Loadable from 'react-loadable';
 const Loading = () => <div>loading...</div>;
 
 const Home = Loadable({
-  loader: () => import(/* webpackPrefetch: true */ '../page-factory/home'),
+  loader: () => import(/* webpackPrefetch: true */ '../pages/page-factory/home'),
   loading: Loading,
 });
 
 const Main = Loadable({
-  loader: () => import(/* webpackPrefetch: true */ '../page-factory/main'),
+  loader: () => import(/* webpackPrefetch: true */ '../pages/main'),
   loading: Loading,
 });
 
 const PowerFactor = Loadable({
-  loader: () => import(/* webpackPrefetch: true */ '../page-factory/power-factor'),
+  loader: () => import(/* webpackPrefetch: true */ '../pages/page-factory/power-factor'),
   loading: Loading,
 });
 
 const PowerEconormy = Loadable({
-  loader: () => import(/* webpackPrefetch: true */ '../page-factory/power-econormy'),
+  loader: () => import(/* webpackPrefetch: true */ '../pages/page-factory/power-econormy'),
   loading: Loading,
 });
 
 const Echart = Loadable({
-  loader: () => import(/* webpackPrefetch: true */ '../page-factory/echarts'),
+  loader: () => import(/* webpackPrefetch: true */ '../pages/page-factory/echarts'),
   loading: Loading,
 });
 
-const FactoryAll = Loadable({
-  loader: () => import(/* webpackPrefetch: true */ '../page-factory-all/main'),
-  loading: Loading,
-});
 const routes = [
   {
     path: '/factory-all',
@@ -59,7 +55,7 @@ const routes = [
   },
   {
     path: '/factory',
-    component: FactoryAll,
+    component: Main,
     routes: [
       {
         path: '/factory/power',
@@ -81,6 +77,10 @@ const routes = [
         component: Home,
       },
     ],
+  },
+  {
+    path: '*',
+    component: Home,
   },
 ];
 

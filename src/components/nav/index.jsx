@@ -40,19 +40,13 @@ class Sider extends React.Component {
   }
 
   render() {
-    const { collapsed, navMapList } = this.state;
+    const { navMapList } = this.state;
     const { location, match } = this.props;
     const { pathname } = location;
     const { path } = match;
     return (
       <div className="app-nav">
-        <Menu
-          defaultSelectedKeys={[pathname]}
-          defaultOpenKeys={[path]}
-          mode="inline"
-          theme="dark"
-          inlineCollapsed={collapsed}
-        >
+        <Menu defaultSelectedKeys={[pathname]} defaultOpenKeys={[path]} mode="inline">
           {this.getNav(navMapList)}
         </Menu>
       </div>

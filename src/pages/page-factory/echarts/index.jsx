@@ -88,10 +88,12 @@ class Echarts extends React.Component {
   }
 
   onChartReadyCallback() {
+    // eslint-disable-next-line no-console
     console.log('chart is ready');
   }
 
   onChange(date, dateString) {
+    // eslint-disable-next-line no-console
     console.log(date, dateString);
   }
 
