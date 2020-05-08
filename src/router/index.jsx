@@ -9,11 +9,11 @@ import '_less/index.less';
 import routes from './router-config';
 
 function RouterConfig() {
-  return (
-    <Provider store={store}>
-      <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>
-    </Provider>
-  );
+    return (
+        <Provider store={store}>
+            <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>
+        </Provider>
+    );
 }
 
 export default hot(RouterConfig);
