@@ -25,7 +25,7 @@ class Home extends React.Component {
     }
 
     fetchServer = () => {
-        axios.get('/add/new').then((res) => {
+        axios.get('/test/some/path').then((res) => {
             console.log(res);
         });
     };

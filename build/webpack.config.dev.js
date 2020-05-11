@@ -1,6 +1,7 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const webpackBase = require('./webpack.config.base');
+const mock = require('../mock');
 
 const webpackDev = {
     mode: 'development',
@@ -15,6 +16,9 @@ const webpackDev = {
         // proxy: {
         //   '/api': 'http://localhost:3000',
         // },
+        before(app) {
+            mock(app);
+        },
     },
     plugins: [new webpack.HotModuleReplacementPlugin()],
 };
