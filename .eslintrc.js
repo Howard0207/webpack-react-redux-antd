@@ -40,6 +40,7 @@ module.exports = {
     // "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)
     rules: {
         semi: 2,
+        'no-plusplus': 0,
         'no-unused-vars': [
             1,
             {
